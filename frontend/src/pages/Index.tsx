@@ -5,6 +5,7 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import LeadForm from '@/components/LeadForm';
 import Footer from '@/components/Footer';
+import Associations from '@/components/Associations';  // ✅ Import new component
 import { Sheet, SheetContent } from '@/components/ui/sheet';
 
 const Index = () => {
@@ -36,6 +37,7 @@ const Index = () => {
       <Hero />
       <About />
       <Services />
+      <Associations />
       <LeadForm />
       {/* Transparent side sheet lead form */}
       <Sheet open={open} onOpenChange={setOpen}>

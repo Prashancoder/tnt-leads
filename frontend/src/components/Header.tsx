@@ -40,7 +40,7 @@ const Header = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center">
-              <img src={tntLogo} alt="T&T Realty" className="h-20 w-auto" />
+              <img src={tntLogo} alt="T&T Realty" className="h-14 w-auto" />
             </div>
 
             {/* Desktop Navigation */}
@@ -69,11 +69,12 @@ const Header = () => {
               >
                 Contact
               </button>
-              <Button 
-                onClick={() => scrollToSection('contact')}
+              {/* ✅ Call Now Button */}
+              <Button
+                asChild
                 className="bg-gradient-primary hover:opacity-90 transition-smooth"
               >
-                Get Quote
+                <a href="tel:917217806549">Call Now</a>
               </Button>
             </nav>
 
@@ -114,11 +115,12 @@ const Header = () => {
                 >
                   Contact
                 </button>
-                <Button 
-                  onClick={() => scrollToSection('contact')}
+                {/* ✅ Call Now in Mobile Menu */}
+                <Button
+                  asChild
                   className="bg-gradient-primary hover:opacity-90 transition-smooth w-full"
                 >
-                  Get Quote
+                  <a href="tel:917217806549">Call Now</a>
                 </Button>
               </nav>
             </div>

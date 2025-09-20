@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import tntLogo from '@/assets/tnt-realty-logo.png';
+import tntLogo from '@/assets/logo.webp';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,23 +11,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer className="bg-[#031B15] text-white font-sans">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-4 gap-10">
           {/* Company Info */}
           <div className="space-y-4">
-            <img src={tntLogo} alt="T&T Realty" className="h-12 w-auto brightness-0 invert" />
-            <p className="text-sm opacity-90">
+            <img src={tntLogo} alt="T&T Realty" className="h-20 w-auto" />
+            <p className="text-sm leading-relaxed text-gray-300">
               Leading real estate consultancy in Delhi NCR since 2014. 
               Your trusted partner for premium properties and investments.
             </p>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm">
-                <Phone size={14} />
+            <div className="space-y-2 text-sm text-gray-300">
+              <div className="flex items-center gap-2">
+                <Phone size={16} />
                 <span>+91 8088113333</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Mail size={14} />
+              <div className="flex items-center gap-2">
+                <Mail size={16} />
                 <span>info@tandtrealty.in</span>
               </div>
             </div>
@@ -35,47 +35,25 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <button 
-                  onClick={() => scrollToSection('home')}
-                  className="opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('about')}
-                  className="opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  About Us
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('services')}
-                  className="opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  Services
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  Contact
-                </button>
-              </li>
+            <h4 className="font-semibold text-lg mb-4 border-b border-white/20 pb-2">Quick Links</h4>
+            <ul className="space-y-2">
+              {['home', 'about', 'services', 'contact'].map((section) => (
+                <li key={section}>
+                  <button 
+                    onClick={() => scrollToSection(section)}
+                    className="hover:text-[#A8D5BA] transition-colors"
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Property Types */}
           <div>
-            <h4 className="font-semibold mb-4">Property Types</h4>
-            <ul className="space-y-2 text-sm opacity-90">
+            <h4 className="font-semibold text-lg mb-4 border-b border-white/20 pb-2">Property Types</h4>
+            <ul className="space-y-2 text-sm text-gray-300">
               <li>Residential Properties</li>
               <li>Commercial Properties</li>
               <li>Retail Shops</li>
@@ -85,8 +63,8 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4">Visit Our Office</h4>
-            <div className="flex items-start gap-2 text-sm opacity-90 mb-4">
+            <h4 className="font-semibold text-lg mb-4 border-b border-white/20 pb-2">Visit Our Office</h4>
+            <div className="flex items-start gap-2 text-sm text-gray-300 mb-3">
               <MapPin size={16} className="mt-1" />
               <div>
                 2nd Floor, Ameya One,<br />
@@ -94,40 +72,30 @@ const Footer = () => {
                 Gurgaon, Haryana 122022
               </div>
             </div>
-            
-            <div className="space-y-2 text-sm">
-              <div>HARERA No: /Ext1/2023/222</div>
-            </div>
+            <div className="text-sm text-gray-300 mb-4">HARERA No: /Ext1/2023/222</div>
 
             {/* Social Links */}
-            <div className="flex gap-2 mt-4">
-              <Button size="sm" variant="ghost" className="text-primary-foreground hover:text-secondary">
-                <Facebook size={16} />
-              </Button>
-              <Button size="sm" variant="ghost" className="text-primary-foreground hover:text-secondary">
-                <Twitter size={16} />
-              </Button>
-              <Button size="sm" variant="ghost" className="text-primary-foreground hover:text-secondary">
-                <Instagram size={16} />
-              </Button>
-              <Button size="sm" variant="ghost" className="text-primary-foreground hover:text-secondary">
-                <Linkedin size={16} />
-              </Button>
+            <div className="flex gap-3 mt-2">
+              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                <Button key={i} size="sm" variant="ghost" className="hover:bg-white/10 p-2 rounded-full">
+                  <Icon size={16} />
+                </Button>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm opacity-90">
-            Copyright © {currentYear} | T AND T REALTY | All Rights Reserved.
+        <div className="border-t border-white/20 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <div>
+            © {currentYear} | T&T REALTY | All Rights Reserved.
           </div>
-          <div className="flex gap-4 text-sm mt-4 md:mt-0">
-            <a href="/privacy-policy" className="opacity-90 hover:opacity-100 transition-opacity">
+          <div className="flex gap-4 mt-3 md:mt-0">
+            <a href="/privacy-policy" className="hover:text-[#A8D5BA] transition-colors">
               Privacy Policy
             </a>
             <span className="opacity-50">|</span>
-            <a href="/terms-conditions" className="opacity-90 hover:opacity-100 transition-opacity">
+            <a href="/terms-conditions" className="hover:text-[#A8D5BA] transition-colors">
               Terms & Conditions
             </a>
           </div>

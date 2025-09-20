@@ -1,30 +1,11 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, TrendingUp, Building, Award, Shield, Handshake } from 'lucide-react';
+import { TrendingUp, Building, Award, Shield } from 'lucide-react';
+import { motion } from "framer-motion";
+
+// ✅ Import your image
+import gurgaoImg from '@/assets/gurgao.webp';
 
 const About = () => {
-  const features = [
-    {
-      icon: Users,
-      title: "Our Buyers",
-      description: "We understand your dreams and necessities and bring them to reality by offering the ideal home that you have always longed for."
-    },
-    {
-      icon: TrendingUp,
-      title: "Investors",
-      description: "We understand your value points regarding the market, key customers and present you an idea that will generate cash flow."
-    },
-    {
-      icon: Building,
-      title: "Developers",
-      description: "We don't just commit but deliver results and our track record speaks for itself. With a Goal-Oriented approach, we are one of the topmost real estates."
-    },
-    {
-      icon: Handshake,
-      title: "Channel Partners",
-      description: "Building a trusted network & keeping the business transparent is what we can boast about. We do offer our support & commit to financial growth."
-    }
-  ];
-
   const whyChoose = [
     {
       icon: Award,
@@ -49,107 +30,123 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        {/* About Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">About T and T Realty</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+    <section id="about" className="py-24 bg-background relative">
+      <div className="container mx-auto px-6">
+
+        {/* Section Header */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide mb-4">
+            About <span className="bg-gradient-to-r from-yellow-500 to-secondary bg-clip-text text-transparent">T and T Realty</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-secondary mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
             Reality Of Real Estate - T and T Realty Services Private Limited is a leading 
             consultancy company incorporated in 2014 to drive Social and Economic Growth 
             through REAL ESTATE.
           </p>
+        </motion.div>
+
+        {/* Who We Are with Image */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
+          {/* Left Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-3xl font-bold mb-6 tracking-wide">Who We Are</h3>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              T and T Realty Services Pvt. Ltd. stands as a leading name in Real Estate 
+              Consulting across the Delhi NCR region. Incepted in Year 2014, with our 
+              proven track record, client-focused approach, and deep market expertise, 
+              we are the trusted partner for navigating the real estate landscape.
+            </p>
+            <p className="text-muted-foreground mb-4 leading-relaxed">
+              At T and T Realty, we specialize in a comprehensive range of services for 
+              buying, selling, and investing in real estate. We are committed to building 
+              partnerships, adding values to our assets & providing strong returns to our 
+              investors and associates.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              T and T derives its name from the <strong>Trust</strong> of its stakeholders 
+              and <strong>Transparency</strong> in all transactions. The commitment to these 
+              principles ensures that we deliver reliable and effective results for our clients.
+            </p>
+
+            {/* Stats */}
+            <div className="mt-10 grid grid-cols-2 gap-6">
+              <div className="text-center p-6 bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-xl shadow-sm">
+                <div className="text-3xl font-bold text-yellow-700">20+</div>
+                <p className="text-sm text-muted-foreground uppercase tracking-wide">Years Experience</p>
+              </div>
+              <div className="text-center p-6 bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-xl shadow-sm">
+                <div className="text-3xl font-bold text-yellow-700">100%</div>
+                <p className="text-sm text-muted-foreground uppercase tracking-wide">Transparent Deals</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Image */}
+          <motion.div 
+            className="relative"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+          >
+            <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl relative group">
+              <img 
+                src={gurgaoImg}
+                alt="About T and T Realty" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* We Are Happy to Serve */}
-        <div className="mb-20">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            We Are Happy to Serve
+        {/* Why Choose Us */}
+        <motion.div 
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-3xl font-bold text-center mb-12">
+            Why Choose <span className="bg-gradient-to-r from-yellow-500 to-secondary bg-clip-text text-transparent">T&T Realty?</span>
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center shadow-card hover:shadow-professional transition-smooth">
-                <CardContent className="p-6">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-primary/10 rounded-full">
-                      <feature.icon size={32} className="text-primary" />
-                    </div>
-                  </div>
-                  <h4 className="text-lg font-semibold mb-3">{feature.title}</h4>
-                  <p className="text-muted-foreground text-sm">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Who We Are */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">Who We Are</h3>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                T and T Realty Services Pvt. Ltd. stands as a leading name in Real Estate 
-                Consulting across the Delhi NCR region. Incepted in Year 2014, with our 
-                proven track record, client-focused approach, and deep market expertise, 
-                we are the trusted partner for navigating the real estate landscape.
-              </p>
-              <p>
-                At T and T Realty, we specialize in a comprehensive range of services for 
-                buying, selling, and investing in real estate. We are committed to building 
-                partnerships, adding values to our assets & providing strong returns to our 
-                investors and associates.
-              </p>
-              <p>
-                T and T derives its name from the <strong>Trust</strong> of its stakeholders 
-                and <strong>Transparency</strong> in all transactions. The commitment to these 
-                principles ensures that we deliver reliable and effective results for our clients.
-              </p>
-            </div>
-          </div>
-          <div className="bg-gradient-primary p-8 rounded-lg text-primary-foreground">
-            <h4 className="text-xl font-semibold mb-4">Our Leadership</h4>
-            <p className="text-sm mb-4">
-              Two main foundation pillars of our company - <strong>Mr. Ashish Thapar</strong> and 
-              <strong> Mr. Gurpreet Ratra</strong>, with more than 20 years of Professional and 
-              Corporate experience in the world of Real Estate and Infrastructure.
-            </p>
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div>
-                <div className="text-2xl font-bold text-secondary">20+</div>
-                <div className="text-xs">Years Experience</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-secondary">100%</div>
-                <div className="text-xs">Transparent Deals</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Why Choose T&T Realty */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            Why Choose T&T Realty?
-          </h3>
-          <div className="grid md:grid-cols-2 gap-8">
             {whyChoose.map((item, index) => (
-              <Card key={index} className="shadow-card">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 bg-primary/10 rounded-full">
-                      <item.icon size={24} className="text-primary" />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500 rounded-xl bg-white/90 backdrop-blur">
+                  <CardContent className="p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <div className="p-4 bg-gradient-to-r from-yellow-500 to-secondary rounded-full text-white shadow-lg">
+                        <item.icon size={28} />
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
-                      <p className="text-muted-foreground text-sm">{item.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                    <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );

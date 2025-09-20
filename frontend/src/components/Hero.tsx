@@ -26,13 +26,11 @@ const Hero = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
+                {[...Array()].map((_, i) => (
                   <Star key={i} size={20} className="text-secondary fill-secondary" />
                 ))}
               </div>
-              <span className="text-primary-foreground text-sm">
-                Trusted by 2000+ Happy Families
-              </span>
+
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
@@ -54,14 +52,13 @@ const Hero = () => {
                 Get Free Consultation
                 <ArrowRight className="ml-2" size={20} />
               </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                onClick={scrollToContact}
-                className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-smooth text-lg px-8 py-6"
-              >
-                View Properties
-              </Button>
+  <Button 
+    size="lg"
+    onClick={scrollToContact}
+    className="bg-secondary text-secondary-foreground hover:bg-secondary-light transition-smooth text-lg px-8 py-6"
+  >
+    View Properties
+  </Button>
             </div>
 
             {/* Stats */}

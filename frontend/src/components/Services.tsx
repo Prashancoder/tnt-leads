@@ -5,11 +5,10 @@ import {
   Building2, 
   ShoppingBag, 
   MapPin, 
-  TrendingUp, 
-  Users, 
-  ArrowRight,
-  CheckCircle 
+  CheckCircle,
+  ArrowRight
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Services = () => {
   const services = [
@@ -54,46 +53,61 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-muted">
+    <section id="services" className="py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
+
         {/* Services Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">T and T Realty Services</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+            T and T Realty <span className="text-primary">Services</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Comprehensive real estate solutions tailored to your investment goals and lifestyle needs
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-20">
           {services.map((service, index) => (
-            <Card key={index} className="shadow-card hover:shadow-professional transition-smooth">
-              <CardHeader className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="p-4 bg-gradient-primary rounded-full">
-                    <service.icon size={32} className="text-primary-foreground" />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+            >
+              <Card className="hover:shadow-xl hover:-translate-y-2 transition-all duration-300 rounded-2xl border border-gray-100">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="p-5 bg-gradient-to-tr from-primary to-secondary rounded-full shadow-lg">
+                      <service.icon size={32} className="text-white" />
+                    </div>
                   </div>
-                </div>
-                <CardTitle className="text-lg">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-2 text-sm">
-                      <CheckCircle size={14} className="text-success" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+                  <CardTitle className="text-lg font-semibold">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                        <CheckCircle size={16} className="text-green-500" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-primary p-8 md:p-12 rounded-lg text-center text-primary-foreground mb-20">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="bg-gradient-to-r from-primary to-secondary p-10 md:p-16 rounded-3xl text-center text-white mb-20 shadow-xl"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Invest in Your Future?
           </h3>
           <p className="text-lg mb-6 max-w-2xl mx-auto opacity-90">
@@ -103,34 +117,18 @@ const Services = () => {
           <Button 
             size="lg"
             onClick={scrollToContact}
-            className="bg-secondary text-secondary-foreground hover:bg-secondary-light transition-smooth"
+            className="bg-white text-primary hover:bg-gray-100 font-semibold transition-smooth"
           >
             Schedule Free Consultation
             <ArrowRight className="ml-2" size={20} />
           </Button>
-        </div>
+        </motion.div>
 
         {/* Our Associations */}
-        <div>
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            Our Developer Associations
-          </h3>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8">
-            {developers.map((developer, index) => (
-              <Card key={index} className="shadow-card hover:shadow-professional transition-smooth">
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-2">{developer.logo}</div>
-                  <div className="font-semibold text-sm">{developer.name}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground">
-              Partnered with leading developers to bring you exclusive projects and competitive prices
-            </p>
-          </div>
-        </div>
+
+
+
+
       </div>
     </section>
   );
